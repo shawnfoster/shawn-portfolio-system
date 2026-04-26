@@ -8,10 +8,20 @@ function Hero({ profile, decisionSystem, executiveProof }) {
         <div className="hero-grid">
           <article className="card profile-card">
             <span className="eyebrow">Profile</span>
-            <h1>{profile.name}</h1>
+            <h1 className="profile-name">
+              {(profile.heroNameLines ?? [profile.name]).map((line) => (
+                <span key={line} className="profile-name-line">
+                  {line}
+                </span>
+              ))}
+            </h1>
             <p className="profile-title">{profile.title}</p>
             <p className="hero-kicker">{profile.body}</p>
             <p className="profile-summary">{profile.support}</p>
+            <div className="profile-fit">
+              <span className="profile-fit-label">{profile.fitLabel}</span>
+              <p className="profile-fit-copy">{profile.fitCopy}</p>
+            </div>
 
             <div className="hero-actions profile-actions">
               <a className="button button-primary" href="#impact">
@@ -26,6 +36,7 @@ function Hero({ profile, decisionSystem, executiveProof }) {
           <DecisionSystem
             title={decisionSystem.title}
             description={decisionSystem.description}
+            signalGroups={decisionSystem.signalGroups}
             proof={decisionSystem.proof}
             operatingModel={decisionSystem.operatingModel}
           >

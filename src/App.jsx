@@ -22,18 +22,8 @@ function App() {
         </div>
         <div className="site-section split-layout">
           <aside className="split-rail">
-            <div className="split-rail-stack">
-              <article className="card split-profile-card">
-                <span className="eyebrow">Profile</span>
-                <h2>{siteContent.profile.name}</h2>
-                <p className="profile-title">{siteContent.profile.title}</p>
-                <p className="hero-kicker">{siteContent.profile.body}</p>
-                <p className="profile-summary">{siteContent.profile.support}</p>
-              </article>
-
-              <div className="split-jump">
-                <JumpCard items={siteContent.stickyNav} />
-              </div>
+            <div className="split-jump">
+              <JumpCard items={siteContent.stickyNav} />
             </div>
           </aside>
 

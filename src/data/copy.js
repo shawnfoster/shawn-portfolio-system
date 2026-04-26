@@ -15,15 +15,28 @@ export const siteContent = {
   ],
   profile: {
     name: 'Shawn Foster, MS',
+    heroNameLines: ['Shawn', 'Foster, MS'],
     title: 'Customer success and business intelligence for SaaS growth.',
     body: 'I turn customer behavior into revenue decisions that improve retention, expansion, and growth.',
     support:
       'Built across startup, SaaS, and regulated environments—where decisions have consequences.',
+    fitLabel: 'Best fit',
+    fitCopy: 'Customer success, BI, and SaaS growth work where retention and expansion decisions matter.',
   },
   decisionSystem: {
     title: "I don't build dashboards. I build decisions that move revenue.",
     description:
       'I connect customer behavior, revenue data, and operations to decisions that drive measurable growth.',
+    signalGroups: [
+      {
+        label: 'Signals',
+        value: 'Customer behavior · Revenue data · Operational context',
+      },
+      {
+        label: 'Decisions',
+        value: 'Retention · Expansion · Growth prioritization',
+      },
+    ],
     proof: 'Used in real revenue decisions—not just reporting.',
     operatingModel: ['Diagnose', 'Translate', 'Systemize'],
   },
