@@ -1,6 +1,7 @@
 export const siteContent = {
   topNav: [
     { label: 'Impact', href: '#impact' },
+    { label: 'Builds', href: '#builds' },
     { label: 'Strengths', href: '#strengths' },
     { label: 'Experience', href: '#experience' },
     { label: 'Contact', href: '#contact' },

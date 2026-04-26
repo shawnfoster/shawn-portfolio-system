@@ -19,10 +19,6 @@ function Header({ items }) {
             </a>
           ))}
         </nav>
-
-        <a className="button button-primary header-contact" href="#contact">
-          Contact
-        </a>
       </header>
     </div>
   )

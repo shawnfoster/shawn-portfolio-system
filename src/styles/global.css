@@ -14,6 +14,18 @@
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
   --radius: 2rem;
   --page-max: 1200px;
+  --space-unit: 0.5rem;
+  --space-1: calc(var(--space-unit) * 1);
+  --space-2: calc(var(--space-unit) * 2);
+  --space-3: calc(var(--space-unit) * 3);
+  --space-4: calc(var(--space-unit) * 4);
+  --space-5: calc(var(--space-unit) * 5);
+  --layout-space: clamp(var(--space-3), 2vw, var(--space-4));
+  --card-space: var(--layout-space);
+  --section-space: var(--layout-space);
+  --frame-radius: calc(var(--space-unit) * 3);
+  --home-buffer: clamp(var(--space-2), 1.8vh, var(--space-3));
+  --home-stage-width: min(1280px, calc(100vw - (var(--space-4) * 2)));
 }
 
 *,
@@ -65,7 +77,7 @@ select {
 
 .app-shell {
   background: transparent;
-  padding-bottom: clamp(1.5rem, 3vw, 3rem);
+  padding-bottom: var(--layout-space);
 }
 
 .home-page,
@@ -73,13 +85,16 @@ select {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  gap: 0;
+  padding-bottom: var(--home-buffer);
 }
 
 .header-wrap {
-  width: min(1180px, calc(100vw - 2rem));
+  width: var(--home-stage-width);
   margin: 0 auto;
   flex: 0 0 auto;
-  padding-top: clamp(0.6rem, 1.2vh, 1rem);
+  padding-top: clamp(var(--space-2), 1.6vh, calc(var(--space-2) + var(--space-1)));
 }
 
 .site-header {
@@ -87,14 +102,14 @@ select {
   width: 100%;
   max-width: 100%;
   margin: 0;
-  min-height: 64px;
-  padding: 0.75rem 1.15rem;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  min-height: clamp(4.4rem, 7vh, 5rem);
+  padding: clamp(0.8rem, 1.2vh, 1rem) clamp(var(--space-2), 2vw, var(--space-3));
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-2);
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--frame-radius);
   overflow: hidden;
   background: rgba(246, 241, 232, 0.92);
   box-shadow: var(--shadow);
@@ -106,28 +121,25 @@ select {
   margin: 0 auto;
   width: 100%;
   min-width: 0;
-  padding: clamp(2.5rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+  padding: var(--section-space);
   scroll-margin-top: 96px;
 }
 
 .hero-section {
-  flex: 1;
+  flex: 0 0 auto;
   width: 100%;
   max-width: none;
-  padding-top: clamp(1.75rem, 3vh, 2.5rem);
-  padding-bottom: clamp(1.5rem, 3vh, 2.5rem);
-  padding-left: 0;
-  padding-right: 0;
+  padding: clamp(0.7rem, 1.1vh, var(--space-2)) 0 clamp(var(--space-2), 2.4vh, var(--space-3));
 }
 
 .section-block {
   display: grid;
-  gap: 1.5rem;
+  gap: var(--section-space);
 }
 
 .section-copy {
   display: grid;
-  gap: 0.75rem;
+  gap: var(--space-2);
   max-width: 64ch;
 }
 
@@ -138,7 +150,7 @@ select {
 .split-layout {
   display: grid;
   grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
-  gap: clamp(1rem, 2vw, 2rem);
+  gap: var(--layout-space);
   align-items: start;
 }
 
@@ -148,7 +160,7 @@ select {
 
 .split-rail-stack {
   display: grid;
-  gap: 1rem;
+  gap: var(--layout-space);
 }
 
 .split-profile-card {
@@ -165,12 +177,12 @@ select {
 
 .split-jump {
   position: sticky;
-  top: 1.25rem;
+  top: var(--layout-space);
 }
 
 .split-main {
   display: grid;
-  gap: clamp(3rem, 5vw, 4.5rem);
+  gap: var(--section-space);
   min-width: 0;
 }
 
@@ -181,22 +193,25 @@ select {
 }
 
 .home-stage {
-  width: min(1180px, calc(100vw - 2rem));
+  width: var(--home-stage-width);
   margin: 0 auto;
+  min-width: 0;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: var(--space-2);
+  flex: 0 1 auto;
+  min-width: 0;
 }
 
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 3.15rem;
-  height: 3.15rem;
-  border-radius: 1rem;
+  width: calc(var(--space-unit) * 6);
+  height: calc(var(--space-unit) * 6);
+  border-radius: var(--frame-radius);
   background: var(--accent);
   overflow: hidden;
   color: #f8f3ea;
@@ -226,14 +241,18 @@ select {
 
 .top-nav {
   display: inline-flex;
+  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.45rem;
-  justify-self: center;
+  gap: var(--space-1);
+  padding: 0.3rem;
+  border-radius: 999px;
+  background: rgba(18, 55, 101, 0.08);
+  flex: 0 0 auto;
 }
 
 .top-nav a {
-  padding: 0.82rem 1.08rem;
+  padding: 0.68rem 1.05rem;
   border-radius: 999px;
   color: var(--ink);
   font-weight: 600;
@@ -263,7 +282,7 @@ select {
 }
 
 .card {
-  padding: clamp(1.25rem, 2vw, 2rem);
+  padding: var(--card-space);
 }
 
 .eyebrow {
@@ -327,7 +346,7 @@ select {
 .base-card,
 .jump-card {
   display: grid;
-  gap: 1rem;
+  gap: clamp(var(--space-2), 1.8vw, var(--space-3));
 }
 
 .profile-card h1,
@@ -342,8 +361,9 @@ select {
 }
 
 .profile-card h1 {
-  font-size: clamp(3.25rem, 5vw, 4.5rem);
-  line-height: 0.95;
+  max-width: 5.4ch;
+  font-size: clamp(2.7rem, 3.35vw, 3.55rem);
+  line-height: 0.9;
 }
 
 .section-title,
@@ -355,8 +375,9 @@ select {
 
 .decision-system-card h1,
 .decision-system-card h2 {
-  font-size: clamp(2.75rem, 4vw, 4rem);
-  line-height: 0.95;
+  max-width: 8.4ch;
+  font-size: clamp(2.45rem, 3.3vw, 3.45rem);
+  line-height: 0.92;
 }
 
 .section-title {
@@ -389,6 +410,14 @@ select {
   font-size: 1.08rem;
 }
 
+.profile-card .profile-title,
+.profile-card .hero-kicker,
+.profile-card .profile-summary,
+.decision-system-main p {
+  font-size: clamp(0.96rem, 1.05vw, 1.04rem);
+  line-height: 1.5;
+}
+
 .hero-kicker,
 .hero-spike {
   color: var(--ink);
@@ -403,9 +432,9 @@ select {
 .hero-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: clamp(1rem, 2vw, 1.5rem);
-  align-items: start;
+  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+  gap: clamp(var(--space-2), 1.6vw, var(--space-3));
+  align-items: stretch;
 }
 
 .profile-card,
@@ -413,8 +442,9 @@ select {
 .executive-proof-card {
   min-width: 0;
   min-height: 0;
-  padding-top: clamp(1.2rem, 2vw, 1.75rem);
-  padding-bottom: clamp(1.2rem, 2vw, 1.75rem);
+  height: 100%;
+  padding-top: clamp(1rem, 1.45vw, 1.25rem);
+  padding-bottom: clamp(1rem, 1.45vw, 1.25rem);
 }
 
 .decision-card,
@@ -426,39 +456,32 @@ select {
 .profile-card {
   display: flex;
   flex-direction: column;
-  padding: clamp(1.5rem, 2vw, 2rem);
-}
-
-.profile-card,
-.decision-system-card {
-  height: auto;
-  max-height: calc(100svh - 190px);
-  overflow: hidden;
+  padding: clamp(1.1rem, 1.45vw, 1.35rem);
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: var(--space-2);
 }
 
 .profile-actions {
   margin-top: auto;
-  padding-top: clamp(1.2rem, 2.5vh, 1.8rem);
+  padding-top: var(--space-2);
 }
 
 .decision-card,
 .proof-card {
-  padding: clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(1.1rem, 1.45vw, 1.35rem);
 }
 
 .decision-card,
 .decision-system-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: clamp(1rem, 2vw, 1.5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 265px);
+  gap: clamp(0.8rem, 1.2vw, var(--space-2));
   align-items: stretch;
-  padding: clamp(1.5rem, 2vw, 2rem);
+  padding: clamp(1.1rem, 1.45vw, 1.35rem);
   background:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.24), transparent 34%),
     linear-gradient(180deg, rgba(246, 241, 232, 0.95) 0%, rgba(246, 241, 232, 0.86) 100%);
@@ -467,8 +490,8 @@ select {
 .decision-system-main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1rem;
+  min-height: 100%;
+  gap: clamp(0.7rem, 1.1vw, 0.95rem);
   min-width: 0;
 }
 
@@ -479,21 +502,25 @@ select {
 
 .decision-lead {
   color: var(--ink) !important;
-  font-size: 1.08rem;
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
   font-weight: 500;
-  max-width: 30ch;
+  max-width: 31ch;
 }
 
 .decision-proof {
-  color: var(--accent) !important;
+  color: var(--ink) !important;
   font-weight: 700;
+  font-size: 0.98rem;
+  line-height: 1.38 !important;
+  padding-left: var(--space-2);
+  border-left: 3px solid rgba(16, 32, 58, 0.12);
 }
 
 .operating-strip {
   display: grid;
-  gap: 0.65rem;
-  margin-top: 0.75rem;
-  padding-top: 1rem;
+  gap: var(--space-1);
+  margin-top: auto;
+  padding-top: var(--space-1);
   border-top: 1px solid var(--line);
 }
 
@@ -508,7 +535,7 @@ select {
 .operating-steps {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
+  gap: var(--space-1);
   align-items: center;
 }
 
@@ -531,7 +558,7 @@ select {
 .proof-list,
 .result-list {
   display: grid;
-  gap: 0.7rem;
+  gap: var(--space-2);
   margin: 0;
   padding-left: 1.2rem;
 }
@@ -543,7 +570,7 @@ select {
   color: #f8f3ea;
   border: 0;
   border-radius: 1.75rem;
-  padding: clamp(1.25rem, 2vw, 1.75rem);
+  padding: clamp(0.95rem, 1.25vw, 1.15rem);
   box-shadow: none;
   backdrop-filter: none;
   width: 100%;
@@ -556,8 +583,9 @@ select {
 }
 
 .executive-proof-card h2 {
-  font-size: clamp(2.2rem, 3.4vw, 3.25rem);
-  line-height: 0.95;
+  max-width: 8.6ch;
+  font-size: clamp(1.22rem, 1.35vw, 1.55rem);
+  line-height: 1;
 }
 
 .proof-card h2,
@@ -568,26 +596,30 @@ select {
 
 .executive-proof-card li,
 .executive-proof-card p {
-  font-size: 0.9rem;
-  line-height: 1.45;
+  font-size: 0.78rem;
+  line-height: 1.26;
+}
+
+.executive-proof-card .proof-list {
+  gap: var(--space-1);
 }
 
 .jump-card {
-  padding: 1.25rem;
+  padding: var(--card-space);
 }
 
 .jump-links {
   display: grid;
-  gap: 0.75rem;
+  gap: var(--space-2);
 }
 
 .jump-links a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--space-2);
   border-radius: 999px;
-  padding: 0.85rem 1rem;
+  padding: var(--space-2);
   background: rgba(255, 255, 255, 0.35);
   font-weight: 600;
 }
@@ -595,7 +627,7 @@ select {
 .card-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: var(--layout-space);
 }
 
 .build-card h3,
@@ -631,7 +663,7 @@ select {
 
 .experience-list {
   display: grid;
-  gap: 1.25rem;
+  gap: var(--layout-space);
 }
 
 .experience-card {
@@ -664,7 +696,7 @@ select {
 .contact-row {
   display: grid;
   grid-template-columns: 260px minmax(420px, 1fr) 320px;
-  gap: clamp(1rem, 2vw, 1.75rem);
+  gap: var(--layout-space);
   align-items: start;
 }
 
@@ -700,82 +732,124 @@ select {
 
 .base-links {
   display: grid;
-  gap: 0.75rem;
+  gap: var(--space-2);
 }
 
 .base-link {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 0.85rem 1rem;
+  padding: var(--space-2);
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.42);
   font-weight: 600;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1399.98px) {
   .home-stage,
   .header-wrap {
-    width: min(1080px, calc(100vw - 1.5rem));
+    width: min(1200px, calc(100vw - (var(--space-4) * 2)));
   }
 
   .hero-grid {
-    grid-template-columns: 300px 1fr;
-    gap: 1.25rem;
+    grid-template-columns: minmax(250px, 300px) minmax(0, 1fr);
   }
 
   .decision-system-card {
-    grid-template-columns: minmax(0, 1fr) 300px;
-    gap: 1.25rem;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 270px);
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .home-stage,
+  .header-wrap {
+    width: min(1080px, calc(100vw - (var(--space-4) * 2)));
   }
 
-  .profile-card,
-  .decision-system-card,
-  .executive-proof-card {
-    padding: 1.5rem;
-    padding-top: 1.3rem;
-    padding-bottom: 1.3rem;
+  .hero-grid {
+    grid-template-columns: minmax(230px, 280px) minmax(0, 1fr);
   }
 
   .profile-card h1 {
-    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-size: clamp(2.75rem, 3.5vw, 3.5rem);
   }
 
   .decision-system-card h1,
   .decision-system-card h2 {
-    font-size: clamp(2.5rem, 5vw, 4.25rem);
+    font-size: clamp(2.6rem, 3.5vw, 3.65rem);
+  }
+
+  .executive-proof-card h2 {
+    font-size: clamp(1.35rem, 1.65vw, 1.7rem);
+  }
+
+  .decision-system-card {
+    grid-template-columns: minmax(0, 1fr) minmax(205px, 245px);
   }
 }
 
-@media (max-height: 800px) {
+@media (max-width: 991.98px) {
+  .home-stage,
+  .header-wrap {
+    width: calc(100vw - (var(--space-3) * 2));
+  }
+
+  .hero-grid {
+    grid-template-columns: minmax(210px, 250px) minmax(0, 1fr);
+  }
+
+  .decision-system-card {
+    grid-template-columns: minmax(0, 1fr) minmax(180px, 210px);
+  }
+}
+
+@media (max-height: 920px) {
   .hero-section {
-    padding-top: 1rem;
-    padding-bottom: 2.25rem;
+    padding-top: var(--space-1);
+    padding-bottom: var(--space-2);
   }
 
   .site-header {
     min-height: 56px;
-    padding-top: 0.55rem;
-    padding-bottom: 0.55rem;
+    padding-top: var(--space-1);
+    padding-bottom: var(--space-1);
   }
 
   .profile-card,
   .decision-system-card,
   .executive-proof-card {
-    padding-top: 1.15rem;
-    padding-bottom: 1.15rem;
+    padding-top: 0.95rem;
+    padding-bottom: 0.95rem;
   }
 
   .profile-card h1 {
-    font-size: clamp(2.76rem, 5.5vw, 4.14rem);
+    font-size: clamp(2.45rem, 3vw, 3.1rem);
     line-height: 0.95;
   }
 
   .decision-system-card h1,
-  .decision-system-card h2,
-  .executive-proof-card h2 {
-    font-size: clamp(2.3rem, 4.6vw, 3.91rem);
+  .decision-system-card h2 {
+    font-size: clamp(2.2rem, 2.85vw, 3rem);
     line-height: 0.95;
+  }
+
+  .executive-proof-card h2 {
+    font-size: clamp(1.1rem, 1.2vw, 1.35rem);
+    line-height: 1;
+  }
+
+  .profile-card .profile-title,
+  .profile-card .hero-kicker,
+  .profile-card .profile-summary,
+  .decision-system-main p {
+    font-size: 0.93rem;
+    line-height: 1.42;
+  }
+
+  .executive-proof-card li,
+  .executive-proof-card p {
+    font-size: 0.74rem;
+    line-height: 1.22;
   }
 }
 
@@ -791,10 +865,15 @@ select {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 767.98px) {
+  .home-page,
+  .hero-screen {
+    gap: var(--space-3);
+  }
+
   .site-header {
-    grid-template-columns: 1fr;
-    justify-items: stretch;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .hero-grid,
@@ -802,13 +881,14 @@ select {
     grid-template-columns: 1fr;
   }
 
+  .hero-section {
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
+  }
+
   .top-nav,
   .hero-actions {
     justify-content: center;
-  }
-
-  .header-contact {
-    width: 100%;
   }
 
   .button,
@@ -818,5 +898,12 @@ select {
 
   .experience-header {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .home-stage,
+  .header-wrap {
+    width: calc(100vw - (var(--space-3) * 2));
   }
 }
