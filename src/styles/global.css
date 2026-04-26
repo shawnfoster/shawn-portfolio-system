@@ -135,6 +135,51 @@ select {
   width: 100%;
 }
 
+.split-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: start;
+}
+
+.split-rail {
+  min-width: 0;
+}
+
+.split-rail-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.split-profile-card {
+  align-content: start;
+}
+
+.split-profile-card h2 {
+  margin: 0;
+  font-family: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', serif;
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+}
+
+.split-jump {
+  position: sticky;
+  top: 1.25rem;
+}
+
+.split-main {
+  display: grid;
+  gap: clamp(3rem, 5vw, 4.5rem);
+  min-width: 0;
+}
+
+.split-main > .site-section {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
 .home-stage {
   width: min(1180px, calc(100vw - 2rem));
   margin: 0 auto;
@@ -402,38 +447,6 @@ select {
   padding-top: clamp(1.2rem, 2.5vh, 1.8rem);
 }
 
-.adaptive-toggle {
-  display: grid;
-  gap: 0.6rem;
-}
-
-.toggle-label {
-  color: var(--muted);
-  font-size: 0.86rem;
-  font-weight: 700;
-}
-
-.toggle-controls {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.toggle-button {
-  padding: 0.7rem 0.95rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.4);
-  color: var(--ink);
-  cursor: pointer;
-}
-
-.toggle-button.is-active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #f8f3ea;
-}
-
 .decision-card,
 .proof-card {
   padding: clamp(1.5rem, 3vw, 2.5rem);
@@ -469,30 +482,6 @@ select {
   font-size: 1.08rem;
   font-weight: 500;
   max-width: 30ch;
-}
-
-.decision-support {
-  display: grid;
-  gap: 0.65rem;
-}
-
-.decision-meta-block {
-  display: grid;
-  gap: 0.18rem;
-}
-
-.decision-meta-label {
-  color: var(--muted);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.decision-meta-copy {
-  color: var(--muted) !important;
-  font-size: 0.92rem;
-  line-height: 1.45 !important;
 }
 
 .decision-proof {
@@ -791,9 +780,14 @@ select {
 }
 
 @media (max-width: 900px) {
+  .split-layout,
   .card-grid-3,
   .contact-row {
     grid-template-columns: 1fr;
+  }
+
+  .split-jump {
+    position: static;
   }
 }
 
@@ -809,8 +803,7 @@ select {
   }
 
   .top-nav,
-  .hero-actions,
-  .toggle-controls {
+  .hero-actions {
     justify-content: center;
   }
 

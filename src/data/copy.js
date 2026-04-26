@@ -1,53 +1,3 @@
-export const defaultMode = 'revops'
-
-export const modeOptions = [
-  { value: 'bi', label: 'BI' },
-  { value: 'cs', label: 'Customer Success' },
-  { value: 'revops', label: 'RevOps' },
-]
-
-export const copy = {
-  bi: {
-    hero: 'Customer behavior → revenue decisions.',
-    decisionSystem: {
-      primary:
-        'Convert customer behavior, revenue signals, and operational data into decisions that move revenue.',
-      secondary: 'Only signals that hold up under action.',
-    },
-    strengths: [
-      'Translate behavior into usable signals',
-      'Remove noise from reporting',
-      'Build decision-ready systems',
-    ],
-  },
-  cs: {
-    hero: 'I turn customer behavior into decisions that improve retention and growth.',
-    decisionSystem: {
-      primary:
-        'I make the “why” behind customer behavior clear—so teams can act on it.',
-      secondary: 'Grounded in how customers actually experience the product.',
-    },
-    strengths: [
-      'Translate customer behavior into actionable signals',
-      'Align product, support, and revenue decisions',
-      'Improve onboarding and retention through clarity',
-    ],
-  },
-  revops: {
-    hero: 'I turn customer behavior into revenue decisions that improve retention, expansion, and growth.',
-    decisionSystem: {
-      primary:
-        'I connect customer behavior, revenue data, and operations to decisions that drive measurable growth.',
-      secondary: 'Focused on what impacts ARR, churn, and expansion.',
-    },
-    strengths: [
-      'Tie behavior to revenue outcomes',
-      'Align teams around growth decisions',
-      'Build systems that scale with the business',
-    ],
-  },
-}
-
 export const siteContent = {
   topNav: [
     { label: 'Impact', href: '#impact' },
@@ -65,16 +15,14 @@ export const siteContent = {
   profile: {
     name: 'Shawn Foster, MS',
     title: 'Customer success and business intelligence for SaaS growth.',
-    spike: 'I turn customer behavior into revenue decisions—fast enough to impact this quarter.',
-    intro:
-      'I work across customer insight, revenue metrics, and operations to improve onboarding, retention, and expansion.',
-    summary:
+    body: 'I turn customer behavior into revenue decisions that improve retention, expansion, and growth.',
+    support:
       'Built across startup, SaaS, and regulated environments—where decisions have consequences.',
-    bestFit:
-      'Customer Success, Revenue Operations, or BI roles where retention and growth decisions matter.',
   },
   decisionSystem: {
     title: "I don't build dashboards. I build decisions that move revenue.",
+    description:
+      'I connect customer behavior, revenue data, and operations to decisions that drive measurable growth.',
     proof: 'Used in real revenue decisions—not just reporting.',
     operatingModel: ['Diagnose', 'Translate', 'Systemize'],
   },
@@ -86,6 +34,11 @@ export const siteContent = {
       'Move from executive planning into hands-on delivery without losing clarity.',
     ],
   },
+  strengths: [
+    'Tie behavior to revenue outcomes',
+    'Align teams around growth decisions',
+    'Build systems that scale with the business',
+  ],
   builds: {
     title: 'Proof that the system actually ships.',
     intro: 'Not just strategy—these are systems I’ve built and used.',
