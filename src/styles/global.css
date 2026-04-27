@@ -24,7 +24,7 @@
   --card-space: var(--layout-space);
   --section-space: var(--layout-space);
   --frame-radius: calc(var(--space-unit) * 2.5);
-  --home-shell-space: clamp(0.9rem, 1.35vw, 1.3rem);
+  --home-shell-space: clamp(0.72rem, 1vw, 0.96rem);
   --home-buffer: var(--home-shell-space);
   --hero-gap: var(--home-shell-space);
   --home-stage-width: min(1240px, calc(100vw - (var(--home-shell-space) * 2)));
@@ -104,8 +104,8 @@ select {
   width: 100%;
   max-width: 100%;
   margin: 0;
-  min-height: clamp(4rem, 6.2vh, 4.5rem);
-  padding: clamp(0.72rem, 1vh, 0.88rem) clamp(var(--space-2), 2vw, var(--space-3));
+  min-height: clamp(3.7rem, 5.4vh, 4.1rem);
+  padding: clamp(0.58rem, 0.8vh, 0.72rem) clamp(var(--space-2), 2vw, var(--space-3));
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -237,17 +237,17 @@ select {
   justify-content: center;
   flex-wrap: wrap;
   gap: var(--space-1);
-  padding: 0.26rem;
+  padding: 0.22rem;
   border-radius: 999px;
   background: rgba(18, 55, 101, 0.28);
   flex: 0 0 auto;
 }
 
 .top-nav a {
-  padding: 0.64rem 1rem;
+  padding: 0.56rem 0.92rem;
   border-radius: 999px;
   color: #f8f3ea;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
@@ -457,8 +457,8 @@ select {
   min-width: 0;
   min-height: 100%;
   height: 100%;
-  padding-top: clamp(0.95rem, 1.28vw, 1.18rem);
-  padding-bottom: clamp(0.95rem, 1.28vw, 1.18rem);
+  padding-top: clamp(0.8rem, 1vw, 0.96rem);
+  padding-bottom: clamp(0.8rem, 1vw, 0.96rem);
 }
 
 .decision-card,
@@ -470,7 +470,7 @@ select {
 .profile-card {
   display: flex;
   flex-direction: column;
-  padding: clamp(1.04rem, 1.28vw, 1.22rem);
+  padding: clamp(0.94rem, 1.08vw, 1.08rem);
   justify-content: space-between;
 }
 
@@ -509,7 +509,7 @@ select {
 
 .decision-card,
 .proof-card {
-  padding: clamp(1.04rem, 1.28vw, 1.22rem);
+  padding: clamp(0.94rem, 1.08vw, 1.08rem);
 }
 
 .decision-card,
@@ -518,7 +518,7 @@ select {
   grid-template-columns: minmax(0, 1fr) minmax(220px, 265px);
   gap: var(--hero-gap);
   align-items: stretch;
-  padding: clamp(1.04rem, 1.28vw, 1.22rem);
+  padding: clamp(0.94rem, 1.08vw, 1.08rem);
   background:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.24), transparent 34%),
     linear-gradient(180deg, rgba(246, 241, 232, 0.95) 0%, rgba(246, 241, 232, 0.86) 100%);
@@ -526,7 +526,7 @@ select {
 
 .decision-system-main {
   display: grid;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto 1fr auto;
   align-content: stretch;
   min-height: 100%;
   gap: clamp(0.9rem, 1.1vw, 1rem);
@@ -543,13 +543,16 @@ select {
   gap: 0.9rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   padding-top: 0.2rem;
-  align-content: start;
+  align-content: stretch;
+  align-items: stretch;
+  min-height: 100%;
 }
 
 .decision-info-block {
   display: grid;
   gap: 0.26rem;
   align-content: start;
+  height: 100%;
   padding: 0.9rem 0.95rem;
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.32);
@@ -558,7 +561,7 @@ select {
 .decision-system-footer {
   display: grid;
   gap: 0.5rem;
-  align-content: end;
+  align-content: start;
 }
 
 .decision-system-proof-slot {
@@ -644,7 +647,7 @@ select {
   color: #f8f3ea;
   border: 0;
   border-radius: 1.75rem;
-  padding: clamp(0.92rem, 1.08vw, 1.08rem);
+  padding: clamp(0.88rem, 1vw, 1rem);
   box-shadow: none;
   backdrop-filter: none;
   width: 100%;
@@ -834,9 +837,13 @@ select {
 }
 
 @media (max-width: 1399.98px) {
+  :root {
+    --home-shell-space: clamp(0.68rem, 0.92vw, 0.9rem);
+  }
+
   .home-stage,
   .header-wrap {
-    width: min(1180px, calc(100vw - (var(--home-shell-space) * 2)));
+    width: min(1160px, calc(100vw - (var(--home-shell-space) * 2)));
   }
 
   .hero-grid {
@@ -849,9 +856,13 @@ select {
 }
 
 @media (max-width: 1199.98px) {
+  :root {
+    --home-shell-space: clamp(0.62rem, 0.84vw, 0.8rem);
+  }
+
   .home-stage,
   .header-wrap {
-    width: min(1060px, calc(100vw - (var(--home-shell-space) * 2)));
+    width: min(1040px, calc(100vw - (var(--home-shell-space) * 2)));
   }
 
   .hero-grid {
@@ -877,6 +888,10 @@ select {
 }
 
 @media (max-width: 991.98px) {
+  :root {
+    --home-shell-space: clamp(0.58rem, 0.9vw, 0.74rem);
+  }
+
   .home-stage,
   .header-wrap {
     width: calc(100vw - (var(--home-shell-space) * 2));
@@ -892,22 +907,26 @@ select {
 }
 
 @media (max-height: 980px) {
+  :root {
+    --home-shell-space: clamp(0.56rem, 0.85vh, 0.72rem);
+  }
+
   .hero-section {
     padding-top: 0;
     padding-bottom: var(--space-1);
   }
 
   .site-header {
-    min-height: 54px;
-    padding-top: 0.65rem;
-    padding-bottom: 0.65rem;
+    min-height: 50px;
+    padding-top: 0.52rem;
+    padding-bottom: 0.52rem;
   }
 
   .profile-card,
   .decision-system-card,
   .executive-proof-card {
-    padding-top: 0.82rem;
-    padding-bottom: 0.82rem;
+    padding-top: 0.72rem;
+    padding-bottom: 0.72rem;
   }
 
   .profile-card h1 {
