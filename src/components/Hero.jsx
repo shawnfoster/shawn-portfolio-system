@@ -1,12 +1,35 @@
+import { useEffect, useRef } from 'react'
 import DecisionSystem from './DecisionSystem'
 import ExecutiveProof from './ExecutiveProof'
 
 function Hero({ profile, decisionSystem, executiveProof }) {
+  const heroGridRef = useRef(null)
+  const profileCardRef = useRef(null)
+
+  useEffect(() => {
+    if (!heroGridRef.current || !profileCardRef.current) return
+
+    const syncProfileHeight = () => {
+      heroGridRef.current?.style.setProperty('--profile-card-height', `${profileCardRef.current?.offsetHeight ?? 0}px`)
+    }
+
+    syncProfileHeight()
+
+    const resizeObserver = new ResizeObserver(syncProfileHeight)
+    resizeObserver.observe(profileCardRef.current)
+    window.addEventListener('resize', syncProfileHeight)
+
+    return () => {
+      resizeObserver.disconnect()
+      window.removeEventListener('resize', syncProfileHeight)
+    }
+  }, [])
+
   return (
     <section className="site-section hero-section">
       <div className="home-stage">
-        <div className="hero-grid">
-          <article className="card profile-card">
+        <div ref={heroGridRef} className="hero-grid">
+          <article ref={profileCardRef} className="card profile-card">
             <span className="eyebrow">Profile</span>
             <h1 className="profile-name">
               {(profile.heroNameLines ?? [profile.name]).map((line) => (

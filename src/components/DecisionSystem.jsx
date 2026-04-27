@@ -20,13 +20,13 @@ function DecisionSystem({ title, description, signalGroups = [], proof, operatin
         ) : null}
 
         <div className="decision-system-footer">
-          <p className="decision-proof">{proof}</p>
+          <blockquote className="decision-proof">{proof}</blockquote>
 
-          <div className="operating-strip" aria-label="Operating model">
+          <div className="operating-strip">
             <span className="operating-label">Operating Model</span>
-            <div className="operating-steps">
+            <div className="decision-model-steps">
               {operatingModel.map((step) => (
-                <span key={step} className="operating-step">
+                <span key={step} className="decision-model-step">
                   {step}
                 </span>
               ))}

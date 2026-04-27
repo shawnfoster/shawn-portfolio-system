@@ -16,36 +16,40 @@ export const siteContent = {
   profile: {
     name: 'Shawn Foster, MS',
     heroNameLines: ['Shawn', 'Foster, MS'],
-    title: 'Customer success and business intelligence for SaaS growth.',
-    body: 'I turn customer behavior into revenue decisions that improve retention, expansion, and growth.',
+    title: 'Customer Success + BI for SaaS Growth',
+    body: 'Customer behavior → revenue decisions across retention, expansion, and growth.',
     support:
       'Built across startup, SaaS, and regulated environments—where decisions have consequences.',
     fitLabel: 'Best fit',
-    fitCopy: 'Customer success, BI, and SaaS growth work where retention and expansion decisions matter.',
+    fitCopy: 'Customer success, BI, and SaaS growth roles where retention and expansion drive the decision.',
   },
   decisionSystem: {
     title: "I don't build dashboards. I build decisions that move revenue.",
     description:
-      'I connect customer behavior, revenue data, and operations to decisions that drive measurable growth.',
+      'Customer behavior, revenue data, and operations—connected to measurable growth.',
     signalGroups: [
       {
         label: 'Signals',
-        value: 'Customer behavior · Revenue data · Operational context',
+        value:
+          'Customer behavior · Revenue · Operational context\nUsage depth · Friction points · Expansion cues',
       },
       {
         label: 'Decisions',
-        value: 'Retention · Expansion · Growth prioritization',
+        value:
+          'Retention · Expansion · Growth\nRenewal risk · Account focus · Next best action',
       },
     ],
-    proof: 'Used in real revenue decisions—not just reporting.',
+    proof:
+      'Used in real revenue decisions—not just reporting.\nBuilt for strategy reviews, renewals, and expansion calls.',
     operatingModel: ['Diagnose', 'Translate', 'Systemize'],
   },
   executiveProof: {
-    title: 'Customer truth, revenue visibility, and execution in the same system.',
+    title: 'Customer truth. Revenue visibility. Execution.',
     bullets: [
-      'Tie reporting directly to ARR, churn, adoption, and expansion decisions.',
-      'Build systems used in both internal strategy and external conversations.',
-      'Move from executive planning into hands-on delivery without losing clarity.',
+      'ARR, churn, and expansion decisions—visible early enough to act.',
+      'Systems used in internal strategy and external conversations.',
+      'Executive planning to hands-on delivery—without losing clarity.',
+      'Signal clarity across product, customer success, and revenue.',
     ],
   },
   strengths: [
