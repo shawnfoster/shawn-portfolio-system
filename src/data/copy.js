@@ -31,17 +31,28 @@ export const siteContent = {
     signalGroups: [
       {
         label: 'Signals',
-        value:
-          'Customer behavior · Revenue · Operational context\nUsage depth · Friction points · Expansion cues',
+        value: [
+          'Customer Behavior',
+          'Revenue',
+          'Operational Context',
+          'Usage Depth',
+          'Friction Points',
+          'Expansion Clues',
+        ],
       },
       {
         label: 'Decisions',
-        value:
-          'Retention · Expansion · Growth\nRenewal risk · Account focus · Next best action',
+        value: [
+          'Retention',
+          'Expansion',
+          'Growth',
+          'Renewal Risk',
+          'Account Focus',
+          'Next Best Action',
+        ],
       },
     ],
-    proof:
-      'Used in real revenue decisions—not just reporting.\nBuilt for strategy reviews, renewals, and expansion calls.',
+    proof: 'Used in real revenue decisions—not just reporting.',
     operatingModel: ['Diagnose', 'Translate', 'Systemize'],
   },
   executiveProof: {
