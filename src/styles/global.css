@@ -826,41 +826,61 @@ select {
 
 .executive-proof-card h2 {
   max-width: 13ch;
-  font-size: clamp(1.48rem, 1.58vw, 1.72rem);
-  line-height: 1.14;
+  font-size: clamp(2.12rem, 2.22vw, 2.5rem);
+  line-height: 1.04;
   text-wrap: pretty;
 }
 
 .executive-proof-body {
-  display: grid;
-  flex: 0 0 auto;
-  justify-content: flex-start;
-  gap: clamp(0.82rem, 0.98vw, 0.94rem);
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(0.56rem, 0.74vw, 0.68rem);
+  padding-top: clamp(0.36rem, 0.52vw, 0.46rem);
+  padding-bottom: clamp(0.42rem, 0.6vw, 0.54rem);
 }
 
 .proof-card h2,
-.proof-card li,
 .proof-card p {
   color: #f8f3ea;
 }
 
-.executive-proof-card li,
-.executive-proof-card p {
-  font-size: clamp(0.94rem, 0.98vw, 1.02rem);
-  line-height: 1.5;
-}
-
-.executive-proof-card .proof-list {
+.proof-blocks {
   display: grid;
-  flex: 0 0 auto;
-  gap: clamp(0.72rem, 0.84vw, 0.8rem);
-  padding-bottom: 0;
+  gap: clamp(0.72rem, 0.88vw, 0.82rem);
 }
 
-.executive-proof-card .proof-list li,
-.executive-proof-body > p {
+.proof-block {
+  display: grid;
+  gap: 0.24rem;
+  padding: 0.72rem 0.78rem clamp(0.28rem, 0.38vw, 0.34rem);
+  border-radius: 0.9rem;
+  background: rgba(248, 243, 234, 0.12);
+  border: 1px solid rgba(248, 243, 234, 0.12);
+}
+
+.proof-block-title {
+  color: rgba(248, 243, 234, 0.86);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.proof-block-copy,
+.proof-closing {
   margin: 0;
-  padding-block: 0;
+  color: #f8f3ea;
+  font-size: clamp(1.04rem, 1.08vw, 1.14rem);
+  line-height: 1.42;
+  text-wrap: pretty;
+}
+
+.proof-closing {
+  margin-top: 0;
+  color: rgba(248, 243, 234, 0.92);
+  font-weight: 600;
 }
 
 .jump-card {
@@ -1065,7 +1085,7 @@ select {
   }
 
   .executive-proof-card h2 {
-    font-size: clamp(1.38rem, 1.44vw, 1.54rem);
+    font-size: clamp(2.24rem, 2.34vw, 2.56rem);
   }
 
   .decision-system-card {
@@ -1123,7 +1143,7 @@ select {
   }
 
   .executive-proof-card h2 {
-    font-size: clamp(1.24rem, 1.3vw, 1.38rem);
+    font-size: clamp(2.06rem, 2.16vw, 2.3rem);
     line-height: 1;
   }
 

@@ -57,12 +57,21 @@ export const siteContent = {
   },
   executiveProof: {
     title: 'Customer truth, revenue visibility, and execution in the same system.',
-    lead: 'Built across startup, SaaS, and regulated environments—where decisions actually have consequences.',
-    bullets: [
-      'Track record across ARR, NRR, churn, adoption, CSAT/NPS, and expansion revenue.',
-      'Built reporting systems that support both internal strategy and client-facing conversations.',
-      'Comfortable moving from executive planning into research, QA, and hands-on delivery work.',
+    blocks: [
+      {
+        title: 'Revenue Signals',
+        text: 'ARR · NRR · Churn · Adoption · Expansion',
+      },
+      {
+        title: 'Decision Systems',
+        text: 'Reporting for Strategy, Renewals, and Client-Facing Conversations',
+      },
+      {
+        title: 'Operator Range',
+        text: 'Executive Planning → Research → QA → Delivery',
+      },
     ],
+    closing: 'Proof is not the dashboard. Proof is the decision it makes possible.',
   },
   strengths: [
     'Tie behavior to revenue outcomes',
