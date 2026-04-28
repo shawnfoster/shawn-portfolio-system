@@ -52,6 +52,7 @@ body {
   font-family: 'Space Grotesk', 'Avenir Next', 'Segoe UI', sans-serif;
   color: var(--ink);
   background:
+    linear-gradient(180deg, #0a1a35 0%, rgba(10, 26, 53, 0.84) 14%, rgba(10, 26, 53, 0) 34%),
     radial-gradient(circle at top left, rgba(246, 241, 232, 0.24), transparent 28%),
     radial-gradient(circle at 85% 10%, rgba(194, 211, 236, 0.18), transparent 24%),
     linear-gradient(180deg, var(--blue) 0%, var(--blue-mid) 48%, var(--blue-soft) 100%);
@@ -239,8 +240,8 @@ select {
   flex-wrap: wrap;
   gap: var(--space-1);
   padding: 0.26rem;
-  border-radius: 999px;
-  background: rgba(18, 55, 101, 0.28);
+  border-radius: var(--frame-radius);
+  background: var(--blue);
   flex: 0 0 auto;
 }
 
