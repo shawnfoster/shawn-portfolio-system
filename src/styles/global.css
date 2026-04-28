@@ -447,7 +447,7 @@ select {
   width: 100%;
   flex: 1 1 auto;
   display: grid;
-  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
   gap: var(--hero-gap);
   align-items: start;
   min-height: 0;
@@ -462,8 +462,8 @@ select {
 }
 
 .profile-card {
-  min-height: auto;
-  align-self: start;
+  min-height: var(--hero-card-min-height);
+  align-self: stretch;
 }
 
 .decision-card,
@@ -859,7 +859,7 @@ select {
   }
 
   .hero-grid {
-    grid-template-columns: minmax(250px, 300px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
   }
 
   .decision-system-card {
@@ -874,7 +874,7 @@ select {
   }
 
   .hero-grid {
-    grid-template-columns: minmax(230px, 280px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
   }
 
   .profile-card h1 {
@@ -902,7 +902,7 @@ select {
   }
 
   .hero-grid {
-    grid-template-columns: minmax(210px, 250px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
   }
 
   .decision-system-card {
