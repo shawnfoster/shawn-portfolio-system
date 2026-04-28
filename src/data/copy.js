@@ -15,9 +15,10 @@ export const siteContent = {
   ],
   profile: {
     name: 'Shawn Foster, MS',
-    heroNameLines: ['Shawn', 'Foster, MS'],
-    title: 'Customer Success + BI for SaaS Growth',
-    body: 'Customer behavior → revenue decisions across retention, expansion, and growth.',
+    heroNameLines: ['Customer Success + BI', 'for SaaS Growth'],
+    title:
+      'I connect customer behavior to revenue decisions across retention, expansion, and growth.',
+    body: '',
     support:
       'Built across startup, SaaS, and regulated environments—where decisions have consequences.',
     fitLabel: 'Best fit',

@@ -38,12 +38,14 @@ function Hero({ profile, decisionSystem, executiveProof }) {
                 </span>
               ))}
             </h1>
-            <p className="profile-title">{profile.title}</p>
-            <p className="hero-kicker">{profile.body}</p>
-            <p className="profile-summary">{profile.support}</p>
-            <div className="profile-fit">
-              <span className="profile-fit-label">{profile.fitLabel}</span>
-              <p className="profile-fit-copy">{profile.fitCopy}</p>
+            <div className="profile-middle">
+              {profile.title ? <p className="profile-title">{profile.title}</p> : null}
+              {profile.body ? <p className="hero-kicker">{profile.body}</p> : null}
+              {profile.support ? <p className="profile-summary">{profile.support}</p> : null}
+              <div className="profile-fit">
+                <span className="profile-fit-label">{profile.fitLabel}</span>
+                <p className="profile-fit-copy">{profile.fitCopy}</p>
+              </div>
             </div>
 
             <div className="hero-actions profile-actions">

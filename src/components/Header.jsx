@@ -7,8 +7,11 @@ function Header({ items }) {
             <img src="/profile-thumb.jpg" alt="" />
           </span>
           <span className="brand-copy">
-            <strong>Shawn Foster, MS</strong>
-            <small>Customer Success + BI</small>
+            <strong>Shawn C. Foster, MSA</strong>
+            <small>
+              <span>Customer Success &amp;</span>
+              <span>Business Intelligence Leader</span>
+            </small>
           </span>
         </a>
 
