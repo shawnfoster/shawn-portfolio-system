@@ -65,7 +65,12 @@ function Hero({ profile, decisionSystem, executiveProof }) {
             proof={decisionSystem.proof}
             operatingModel={decisionSystem.operatingModel}
           >
-            <ExecutiveProof title={executiveProof.title} bullets={executiveProof.bullets} />
+            <ExecutiveProof
+              title={executiveProof.title}
+              lead={executiveProof.lead}
+              bullets={executiveProof.bullets}
+              closing={executiveProof.closing}
+            />
           </DecisionSystem>
         </div>
       </div>

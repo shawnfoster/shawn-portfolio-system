@@ -574,7 +574,7 @@ select {
 .decision-card,
 .decision-system-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 265px);
+  grid-template-columns: minmax(0, 1fr) minmax(235px, 280px);
   gap: var(--hero-gap);
   align-items: stretch;
   align-self: stretch;
@@ -825,10 +825,17 @@ select {
 }
 
 .executive-proof-card h2 {
-  max-width: none;
-  font-size: clamp(1.56rem, 1.72vw, 1.92rem);
-  line-height: 1.08;
+  max-width: 13ch;
+  font-size: clamp(1.48rem, 1.58vw, 1.72rem);
+  line-height: 1.14;
   text-wrap: pretty;
+}
+
+.executive-proof-body {
+  display: grid;
+  flex: 0 0 auto;
+  justify-content: flex-start;
+  gap: clamp(0.82rem, 0.98vw, 0.94rem);
 }
 
 .proof-card h2,
@@ -837,12 +844,23 @@ select {
   color: #f8f3ea;
 }
 
+.executive-proof-card li,
+.executive-proof-card p {
+  font-size: clamp(0.94rem, 0.98vw, 1.02rem);
+  line-height: 1.5;
+}
+
 .executive-proof-card .proof-list {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: clamp(0.78rem, 1.08vw, 0.96rem);
+  display: grid;
+  flex: 0 0 auto;
+  gap: clamp(0.72rem, 0.84vw, 0.8rem);
+  padding-bottom: 0;
+}
+
+.executive-proof-card .proof-list li,
+.executive-proof-body > p {
+  margin: 0;
+  padding-block: 0;
 }
 
 .jump-card {
@@ -1023,7 +1041,7 @@ select {
   }
 
   .decision-system-card {
-    grid-template-columns: minmax(0, 1fr) minmax(220px, 270px);
+    grid-template-columns: minmax(0, 1fr) minmax(235px, 285px);
   }
 }
 
@@ -1047,11 +1065,11 @@ select {
   }
 
   .executive-proof-card h2 {
-    font-size: clamp(1.24rem, 1.28vw, 1.42rem);
+    font-size: clamp(1.38rem, 1.44vw, 1.54rem);
   }
 
   .decision-system-card {
-    grid-template-columns: minmax(0, 1fr) minmax(205px, 245px);
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 260px);
   }
 }
 
@@ -1066,7 +1084,7 @@ select {
   }
 
   .decision-system-card {
-    grid-template-columns: minmax(0, 1fr) minmax(180px, 210px);
+    grid-template-columns: minmax(0, 1fr) minmax(195px, 225px);
   }
 }
 
@@ -1105,8 +1123,14 @@ select {
   }
 
   .executive-proof-card h2 {
-    font-size: clamp(1.12rem, 1.14vw, 1.26rem);
+    font-size: clamp(1.24rem, 1.3vw, 1.38rem);
     line-height: 1;
+  }
+
+  .executive-proof-card li,
+  .executive-proof-card p {
+    font-size: 0.9rem;
+    line-height: 1.42;
   }
 
   .profile-card .profile-title,
@@ -1120,8 +1144,6 @@ select {
   .experience-card p,
   .base-card p,
   .contact-card p,
-  .executive-proof-card li,
-  .executive-proof-card p,
   .decision-info-copy,
   .decision-proof {
     font-size: 0.99rem;

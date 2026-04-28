@@ -56,12 +56,12 @@ export const siteContent = {
     operatingModel: ['Diagnose', 'Translate', 'Systemize'],
   },
   executiveProof: {
-    title: 'Customer truth. Revenue visibility. Execution.',
+    title: 'Customer truth, revenue visibility, and execution in the same system.',
+    lead: 'Built across startup, SaaS, and regulated environments—where decisions actually have consequences.',
     bullets: [
-      'ARR, churn, and expansion decisions—visible early enough to act.',
-      'Systems used in internal strategy and external conversations.',
-      'Executive planning to hands-on delivery—without losing clarity.',
-      'Signal clarity across product, customer success, and revenue.',
+      'Track record across ARR, NRR, churn, adoption, CSAT/NPS, and expansion revenue.',
+      'Built reporting systems that support both internal strategy and client-facing conversations.',
+      'Comfortable moving from executive planning into research, QA, and hands-on delivery work.',
     ],
   },
   strengths: [
