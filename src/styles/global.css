@@ -29,6 +29,8 @@
   --hero-gap: var(--home-shell-space);
   --home-stage-width: min(1240px, calc(100vw - (var(--home-shell-space) * 2)));
   --hero-card-min-height: calc(100svh - clamp(5rem, 7.2vh, 5.8rem) - (var(--home-shell-space) * 4));
+  --sticky-top-offset: var(--home-shell-space);
+  --final-card-height: clamp(520px, 68vh, 720px);
   --card-copy-size: clamp(1rem, 1.06vw, 1.1rem);
   --card-copy-line: 1.48;
   --card-label-size: 0.86rem;
@@ -88,6 +90,11 @@ select {
   padding-bottom: var(--layout-space);
 }
 
+.site-shell {
+  display: grid;
+  gap: var(--layout-space);
+}
+
 .home-page,
 .hero-screen {
   min-height: 100svh;
@@ -130,6 +137,13 @@ select {
   min-width: 0;
   padding: var(--section-space);
   scroll-margin-top: 96px;
+}
+
+.page-stage {
+  width: min(100%, var(--home-stage-width));
+  max-width: var(--home-stage-width);
+  margin: 0 auto;
+  padding: 0;
 }
 
 .hero-section {
@@ -183,6 +197,60 @@ select {
   max-width: none;
   padding: 0;
   margin: 0;
+}
+
+.scroll-section.post-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  grid-template-areas: 'rail right';
+  gap: var(--layout-space);
+  align-items: start;
+}
+
+.left-rail {
+  grid-area: rail;
+  min-width: 0;
+  position: relative;
+}
+
+.jump-rail {
+  position: sticky;
+  top: var(--sticky-top-offset);
+}
+
+.right-rail {
+  grid-area: right;
+  display: grid;
+  gap: var(--section-space);
+  min-width: 0;
+  align-content: start;
+}
+
+.right-rail > .site-section {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+.final-contact-base {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: var(--layout-space);
+  align-items: stretch;
+  min-height: var(--final-card-height);
+}
+
+.final-contact-base .contact-card,
+.final-contact-base .base-card {
+  min-height: var(--final-card-height);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.final-contact-base .contact-button,
+.final-contact-base .base-links {
+  margin-top: auto;
 }
 
 .home-stage {
@@ -884,9 +952,16 @@ select {
 }
 
 .jump-card {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--space-2), 1.4vw, var(--space-3));
   padding: var(--card-space);
-  min-height: clamp(22rem, 56vh, 31rem);
-  align-content: start;
+  min-height: var(--final-card-height);
+}
+
+.jump-card-top {
+  display: grid;
+  gap: clamp(var(--space-2), 1.4vw, var(--space-3));
 }
 
 .jump-links {
@@ -903,6 +978,39 @@ select {
   padding: var(--space-2);
   background: rgba(255, 255, 255, 0.35);
   font-weight: 600;
+}
+
+.jump-quote {
+  display: grid;
+  gap: clamp(0.65rem, 0.86vw, 0.78rem);
+  margin-top: auto;
+  padding-top: clamp(0.9rem, 1.1vw, 1rem);
+  border-top: 1px solid var(--line);
+}
+
+.jump-quote-text {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', serif;
+  font-size: clamp(1.02rem, 1.14vw, 1.16rem);
+  line-height: 1.42;
+  text-wrap: pretty;
+}
+
+.jump-quote-meta {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.jump-quote-author {
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.jump-quote-context {
+  color: var(--muted);
+  font-size: 0.82rem;
 }
 
 .card-grid-3 {
@@ -1050,6 +1158,26 @@ select {
   font-weight: 600;
 }
 
+.footer-section {
+  padding-top: 0;
+}
+
+.footer-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+  padding: clamp(0.9rem, 1.14vw, 1.02rem) clamp(1rem, 1.4vw, 1.24rem);
+}
+
+.footer-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
 @media (max-width: 1399.98px) {
   .home-stage,
   .header-wrap {
@@ -1181,6 +1309,29 @@ select {
   .split-jump {
     position: static;
   }
+
+  .post-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'right'
+      'rail';
+  }
+
+  .jump-rail {
+    position: static;
+  }
+
+  .final-contact-base {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .jump-card,
+  .final-contact-base .contact-card,
+  .final-contact-base .base-card {
+    min-height: auto;
+    height: auto;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -1226,6 +1377,14 @@ select {
 
   .experience-header {
     flex-direction: column;
+  }
+
+  .page-stage {
+    width: calc(100vw - (var(--home-shell-space) * 2));
+  }
+
+  .footer-card {
+    justify-content: flex-start;
   }
 }
 

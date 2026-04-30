@@ -11,7 +11,7 @@ import { siteContent } from './data/copy'
 function App() {
   return (
     <div className="app-shell" id="top">
-      <main>
+      <main className="site-shell">
         <div className="home-page hero-screen">
           <Header items={siteContent.topNav} />
           <Hero
@@ -20,14 +20,15 @@ function App() {
             executiveProof={siteContent.executiveProof}
           />
         </div>
-        <div className="site-section split-layout">
-          <aside className="split-rail">
-            <div className="split-jump">
-              <JumpCard items={siteContent.stickyNav} />
+
+        <section className="site-section page-stage scroll-section post-grid">
+          <aside className="left-rail">
+            <div className="jump-rail">
+              <JumpCard items={siteContent.stickyNav} quote={siteContent.jumpQuotes?.[0]} />
             </div>
           </aside>
 
-          <div className="split-main">
+          <div className="right-rail">
             <SelectedImpact
               title={siteContent.impact.title}
               intro={siteContent.impact.intro}
@@ -39,10 +40,16 @@ function App() {
               items={siteContent.builds.items}
             />
             <Strengths items={siteContent.strengths} />
+            <Experience items={siteContent.experience.items} />
+            <Contact contact={siteContent.contact} base={siteContent.base} />
           </div>
-        </div>
-        <Experience items={siteContent.experience.items} />
-        <Contact contact={siteContent.contact} base={siteContent.base} jumpItems={siteContent.stickyNav} />
+        </section>
+
+        <footer className="site-section page-stage footer-section">
+          <div className="card footer-card">
+            <p>© 2026 Shawn Foster. All rights reserved.</p>
+          </div>
+        </footer>
       </main>
     </div>
   )

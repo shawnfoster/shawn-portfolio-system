@@ -13,6 +13,13 @@ export const siteContent = {
     { label: 'Experience', href: '#experience' },
     { label: 'Contact', href: '#contact' },
   ],
+  jumpQuotes: [
+    {
+      quote: 'Some men see things as they are and say why. I dream things that never were and say why not.',
+      author: 'George Bernard Shaw',
+      context: 'Playwright and critic',
+    },
+  ],
   profile: {
     name: 'Shawn Foster, MS',
     heroNameLines: ['Customer Success + BI', 'for SaaS Growth'],

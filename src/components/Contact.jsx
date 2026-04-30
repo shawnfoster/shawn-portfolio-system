@@ -1,12 +1,8 @@
 import BaseCard from './BaseCard'
-import JumpCard from './JumpCard'
 
-function Contact({ contact, base, jumpItems }) {
+function Contact({ contact, base }) {
   return (
-    <section id="contact" className="site-section section-block contact-section">
-      <div className="section-inner contact-row">
-        <JumpCard items={jumpItems} />
-
+    <div id="contact" className="final-contact-base">
         <article className="card contact-card">
           <span className="eyebrow">Contact</span>
           <h2 className="section-title">{contact.title}</h2>
@@ -17,8 +13,7 @@ function Contact({ contact, base, jumpItems }) {
         </article>
 
         <BaseCard location={base.location} availability={base.availability} links={base.links} />
-      </div>
-    </section>
+    </div>
   )
 }
 
