@@ -1,4 +1,4 @@
-function JumpCard({ items, quote }) {
+function JumpCard({ items, mediaProof, quote }) {
   return (
     <aside className="card jump-card">
       <div className="jump-card-top">
@@ -12,6 +12,15 @@ function JumpCard({ items, quote }) {
           ))}
         </nav>
       </div>
+
+      {mediaProof ? (
+        <div className="jump-media-proof" aria-label="Media proof">
+          <span className="jump-media-proof-title">{mediaProof.title}</span>
+          <p className="jump-media-proof-body">{mediaProof.body}</p>
+          <p className="jump-media-proof-support">{mediaProof.support}</p>
+          <span className="jump-media-proof-cta">{mediaProof.cta}</span>
+        </div>
+      ) : null}
 
       {quote ? (
         <div className="jump-quote" aria-label="Quote billboard">

@@ -48,13 +48,16 @@ function Hero({ profile, decisionSystem, executiveProof }) {
               </div>
             </div>
 
-            <div className="hero-actions profile-actions">
-              <a className="button button-primary" href="#impact">
-                Selected Impact
-              </a>
-              <a className="button button-secondary" href="#contact">
-                Start a conversation
-              </a>
+            <div className="profile-footer">
+              <img className="profile-photo" src="/profile-photo.png" alt="Portrait of Shawn Foster" />
+              <div className="hero-actions profile-actions">
+                <a className="button button-primary" href="#impact">
+                  Selected Impact
+                </a>
+                <a className="button button-secondary" href="#contact">
+                  Start a conversation
+                </a>
+              </div>
             </div>
           </article>
 

@@ -24,7 +24,11 @@ function App() {
         <section className="site-section page-stage scroll-section post-grid">
           <aside className="left-rail">
             <div className="jump-rail">
-              <JumpCard items={siteContent.stickyNav} quote={siteContent.jumpQuotes?.[0]} />
+              <JumpCard
+                items={siteContent.stickyNav}
+                mediaProof={siteContent.jumpMediaProof}
+                quote={siteContent.jumpQuotes?.[0]}
+              />
             </div>
           </aside>
 
@@ -42,14 +46,13 @@ function App() {
             <Strengths items={siteContent.strengths} />
             <Experience items={siteContent.experience.items} />
             <Contact contact={siteContent.contact} base={siteContent.base} />
+            <footer className="site-section footer-section">
+              <div className="card footer-card">
+                <p>© 2026 Shawn Foster. All rights reserved.</p>
+              </div>
+            </footer>
           </div>
         </section>
-
-        <footer className="site-section page-stage footer-section">
-          <div className="card footer-card">
-            <p>© 2026 Shawn Foster. All rights reserved.</p>
-          </div>
-        </footer>
       </main>
     </div>
   )

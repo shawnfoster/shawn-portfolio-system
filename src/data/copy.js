@@ -20,6 +20,12 @@ export const siteContent = {
       context: 'Playwright and critic',
     },
   ],
+  jumpMediaProof: {
+    title: 'WGN Radio / Technori Feature',
+    body: 'This rocker fell into accounting — then coded for musicians.',
+    support: 'A founder story on turning operational frustration into a working product.',
+    cta: 'Read feature →',
+  },
   profile: {
     name: 'Shawn Foster, MS',
     heroNameLines: ['Customer Success + BI', 'for SaaS Growth'],
@@ -87,7 +93,7 @@ export const siteContent = {
   ],
   builds: {
     title: 'Proof that the system actually ships.',
-    intro: 'Not just strategy—these are systems I’ve built and used.',
+    intro: 'Systems built for strategy, renewals, and client-facing work.',
     items: [
       {
         title: 'Career Intelligence Engine',
@@ -117,8 +123,7 @@ export const siteContent = {
   },
   impact: {
     title: "Where I've changed how companies actually grow.",
-    intro:
-      'Across SaaS, startups, and compliance environments, the goal stays the same: turn customer truth into measurable growth.',
+    intro: 'Customer truth turned into measurable growth across SaaS, startups, and compliance environments.',
     cards: [
       {
         title: 'Revenue visibility',
