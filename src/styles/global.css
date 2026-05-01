@@ -36,6 +36,10 @@
   --card-copy-line: 1.48;
   --card-label-size: 0.86rem;
   --card-label-track: 0.08em;
+  --rail-card-space: clamp(1rem, 1.08vw, 1.12rem);
+  --rail-card-gap: clamp(0.8rem, 0.98vw, 0.9rem);
+  --rail-layer-inset: clamp(0.9rem, 1vw, 1rem);
+  --rail-layer-overlap: clamp(1.1rem, 1.4vw, 1.28rem);
 }
 
 *,
@@ -210,17 +214,13 @@ select {
 
 .left-rail {
   grid-area: rail;
+  display: grid;
+  gap: var(--section-space);
   min-width: 0;
   position: relative;
+  align-content: stretch;
   align-self: stretch;
-}
-
-.jump-rail {
-  position: sticky;
-  top: var(--sticky-top-offset);
-  width: 100%;
-  height: var(--post-view-height);
-  align-self: start;
+  grid-template-rows: auto minmax(0, 1fr) auto;
 }
 
 .right-rail {
@@ -1010,20 +1010,23 @@ select {
 .jump-card {
   display: flex;
   flex-direction: column;
-  gap: clamp(var(--space-2), 1.4vw, var(--space-3));
-  padding: var(--card-space);
-  min-height: 100%;
-  height: 100%;
+  gap: var(--rail-card-gap);
+  padding: var(--rail-card-space);
+  min-height: auto;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  margin-block: calc(var(--rail-layer-overlap) * -1);
 }
 
 .jump-card-top {
   display: grid;
-  gap: clamp(var(--space-2), 1.4vw, var(--space-3));
+  gap: clamp(0.72rem, 0.9vw, 0.84rem);
 }
 
 .jump-links {
   display: grid;
-  gap: var(--space-2);
+  gap: clamp(0.62rem, 0.8vw, 0.74rem);
 }
 
 .jump-links a {
@@ -1032,19 +1035,40 @@ select {
   align-items: center;
   gap: var(--space-2);
   border-radius: 999px;
-  padding: var(--space-2);
+  padding: clamp(0.72rem, 0.88vw, 0.8rem) clamp(0.96rem, 1.08vw, 1rem);
   background: rgba(255, 255, 255, 0.35);
-  font-size: 0.94rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
+.jump-media-wrap {
+  display: grid;
+  position: relative;
+  min-height: 100%;
+  align-content: space-between;
+  gap: 0;
+}
+
+.jump-quote-card,
 .jump-media-proof {
   display: grid;
   gap: clamp(0.42rem, 0.58vw, 0.52rem);
-  padding: clamp(0.88rem, 1.04vw, 0.98rem);
+  padding: var(--rail-card-space);
   border-radius: 1rem;
-  background: rgba(18, 55, 101, 0.08);
+  background: rgba(246, 241, 232, 0.78);
   border: 1px solid rgba(16, 32, 58, 0.08);
+  position: relative;
+  z-index: 0;
+  box-shadow: 0 12px 24px rgba(8, 20, 38, 0.08);
+  margin-inline: var(--rail-layer-inset);
+}
+
+.jump-quote-card {
+  padding-bottom: calc(var(--rail-card-space) + var(--rail-layer-overlap));
+}
+
+.jump-media-proof {
+  padding-top: calc(var(--rail-card-space) + var(--rail-layer-overlap));
 }
 
 .jump-media-proof-title {
@@ -1081,20 +1105,12 @@ select {
   font-weight: 700;
 }
 
-.jump-quote {
-  display: grid;
-  gap: clamp(0.65rem, 0.86vw, 0.78rem);
-  margin-top: auto;
-  padding-top: clamp(0.9rem, 1.1vw, 1rem);
-  border-top: 1px solid var(--line);
-}
-
 .jump-quote-text {
   margin: 0;
   color: var(--ink);
   font-family: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', serif;
-  font-size: clamp(0.9rem, 0.98vw, 1rem);
-  line-height: 1.34;
+  font-size: clamp(0.84rem, 0.92vw, 0.94rem);
+  line-height: 1.28;
   text-wrap: pretty;
 }
 
@@ -1105,13 +1121,13 @@ select {
 
 .jump-quote-author {
   color: var(--ink);
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   font-weight: 700;
 }
 
 .jump-quote-context {
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
 }
 
 .card-grid-3 {
@@ -1219,6 +1235,12 @@ select {
   color: #f8f3ea;
 }
 
+.left-rail .base-card,
+.left-rail .contact-card {
+  padding: var(--rail-card-space);
+  gap: var(--rail-card-gap);
+}
+
 .contact-card .eyebrow {
   background: rgba(248, 243, 234, 0.16);
   color: #f8f3ea;
@@ -1230,8 +1252,23 @@ select {
   color: #f8f3ea;
 }
 
+.left-rail .contact-card .section-title {
+  max-width: 10ch;
+  font-size: clamp(1.84rem, 2.22vw, 2.24rem);
+  line-height: 0.98;
+}
+
 .contact-card p {
   color: rgba(248, 243, 234, 0.9);
+}
+
+.left-rail .contact-card p {
+  font-size: 0.94rem;
+  line-height: 1.34;
+}
+
+.left-rail .contact-card {
+  margin-top: auto;
 }
 
 .contact-button {
@@ -1240,8 +1277,23 @@ select {
   color: var(--accent);
 }
 
+.left-rail .contact-button {
+  min-height: 2.6rem;
+  padding: 0.72rem 1rem;
+}
+
 .base-card {
   align-content: start;
+}
+
+.left-rail .base-card h3 {
+  font-size: 1.32rem;
+  line-height: 1.08;
+}
+
+.left-rail .base-card p {
+  font-size: 0.94rem;
+  line-height: 1.34;
 }
 
 .base-links {
@@ -1257,6 +1309,15 @@ select {
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.42);
   font-weight: 600;
+}
+
+.left-rail .base-links {
+  gap: clamp(0.58rem, 0.76vw, 0.68rem);
+}
+
+.left-rail .base-link {
+  padding: 0.72rem 0.88rem;
+  font-size: 0.9rem;
 }
 
 .footer-section {
@@ -1418,6 +1479,11 @@ select {
       'rail';
   }
 
+  .left-rail {
+    grid-template-rows: none;
+    align-self: start;
+  }
+
   .jump-rail {
     position: static;
     height: auto;
@@ -1433,11 +1499,27 @@ select {
     height: auto;
   }
 
+  .jump-media-wrap {
+    min-height: auto;
+    gap: var(--space-2);
+  }
+
+  .jump-quote-card,
+  .jump-media-proof {
+    margin-inline: 0;
+    padding-top: var(--rail-card-space);
+    padding-bottom: var(--rail-card-space);
+  }
+
   .jump-card,
-  .final-contact-base .contact-card,
-  .final-contact-base .base-card {
+  .contact-card,
+  .base-card {
     min-height: auto;
     height: auto;
+  }
+
+  .jump-card {
+    margin-block: 0;
   }
 }
 

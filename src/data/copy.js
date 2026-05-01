@@ -23,8 +23,9 @@ export const siteContent = {
   jumpMediaProof: {
     title: 'WGN Radio / Technori Feature',
     body: 'This rocker fell into accounting — then coded for musicians.',
-    support: 'A founder story on turning operational frustration into a working product.',
+    support: 'Founder story on turning operational frustration into a working product.',
     cta: 'Read feature →',
+    href: 'https://wgnradio.com/business/this-rocker-fell-into-accounting-but-now-codes-for-musicians/',
   },
   profile: {
     name: 'Shawn Foster, MS',

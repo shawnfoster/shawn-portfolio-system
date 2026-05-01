@@ -1,4 +1,5 @@
 import Contact from './components/Contact'
+import BaseCard from './components/BaseCard'
 import Experience from './components/Experience'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -23,13 +24,17 @@ function App() {
 
         <section className="site-section page-stage scroll-section post-grid">
           <aside className="left-rail">
-            <div className="jump-rail">
-              <JumpCard
-                items={siteContent.stickyNav}
-                mediaProof={siteContent.jumpMediaProof}
-                quote={siteContent.jumpQuotes?.[0]}
-              />
-            </div>
+            <BaseCard
+              location={siteContent.base.location}
+              availability={siteContent.base.availability}
+              links={siteContent.base.links}
+            />
+            <JumpCard
+              items={siteContent.stickyNav}
+              mediaProof={siteContent.jumpMediaProof}
+              quote={siteContent.jumpQuotes?.[0]}
+            />
+            <Contact contact={siteContent.contact} href={siteContent.base.links[0].href} />
           </aside>
 
           <div className="right-rail">
@@ -45,14 +50,14 @@ function App() {
             />
             <Strengths items={siteContent.strengths} />
             <Experience items={siteContent.experience.items} />
-            <Contact contact={siteContent.contact} base={siteContent.base} />
-            <footer className="site-section footer-section">
-              <div className="card footer-card">
-                <p>© 2026 Shawn Foster. All rights reserved.</p>
-              </div>
-            </footer>
           </div>
         </section>
+
+        <footer className="site-section page-stage footer-section">
+          <div className="card footer-card">
+            <p>© 2026 Shawn Foster. All rights reserved.</p>
+          </div>
+        </footer>
       </main>
     </div>
   )
